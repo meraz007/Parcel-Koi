@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import CreateParcel from "../views/CreateParcel.vue"
 import DeshBoard from "../views/DeshBoard.vue"
-
+import Login from "../views/Login.vue"
 const routes = [
   {
     path: "/",
@@ -12,12 +12,17 @@ const routes = [
   {
     path: "/create-parcel",
     name: "CreateParcel",
-    component: CreateParcel
+    component: CreateParcel,
   },
   {
     path: "/desh-board",
     name: "DeshBoard",
-    component: DeshBoard
+    component: DeshBoard,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: Login
   },
 ];
 
