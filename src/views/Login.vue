@@ -45,9 +45,11 @@
 
 <script>
 import {ref} from 'vue';
-import firebase from 'firebase'
+import firebase from 'firebase';
+import { useRouter } from "vue-router";
 export default {
   setup(){
+    const router = useRouter();
     const email =ref("");
     const password =ref("");
 
@@ -57,6 +59,7 @@ export default {
           .signInWithEmailAndPassword(email.value,password.value)
           .then(() =>{
               alert('Successfully Login');
+              router.push({name :"CreateParcel"})
             })
           .catch(err=>alert(err.message))
     }

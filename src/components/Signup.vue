@@ -8,12 +8,6 @@
             <div class="card-body bg-dark text-white p-5">
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
               <form @submit.prevent="Register">
-                  <!--
-                <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example1cg">Your Name</label>
-                  <input type="text" id="form3Example1cg" class="form-control" />
-                </div>
-                -->
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example3cg">Your Email</label>
                   <input type="email" 
@@ -52,8 +46,10 @@
 <script>
 import firebase from 'firebase'
 import {ref} from 'vue';
+import { useRouter } from "vue-router";
 export default {
     setup(){
+        const router = useRouter();
         const email=ref("");
         const password=ref("");
 
@@ -63,6 +59,7 @@ export default {
                 .createUserWithEmailAndPassword(email.value,password.value)
                 .then(() =>{
                     alert('Successfully Registerd! Please Login');
+                    router.push("/login");
                 })
                 .catch(err =>alert(err.message))
         }
